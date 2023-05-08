@@ -29,7 +29,7 @@ export default function Reviews() {
   return (
     <Section>
       {isLoading && <Loader />}
-      {!reviews && (
+      {!reviews.length && (
         <p style={{ fontSize: '40px', color: '#fff', textAlign: 'center' }}>
           We don't have any reviews for this movie
         </p>

@@ -20,5 +20,5 @@ export default function Loader({ top }) {
 }
 
 Loader.propTypes = {
-  top: PropTypes.string.isRequired,
+  top: PropTypes.string,
 };

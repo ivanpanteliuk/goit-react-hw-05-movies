@@ -37,7 +37,7 @@ export default function Cast() {
   return (
     <Section>
       {isLoading && <Loader />}
-      {!cast && (
+      {!cast.length && (
         <p style={{ fontSize: '40px', color: '#fff', textAlign: 'center' }}>
           There is no information about cast yet
         </p>

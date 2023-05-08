@@ -48,29 +48,30 @@ export default function MovieDetails() {
         )}
         {isLoading && <Loader top="50" />}
         <GoBackBtn to={backPath.current}>Go Back</GoBackBtn>
-        <DetailsWrapper>
-          <img src={movie.imageUrl} alt={movie.title} width="500" />
-          <Wrap>
-            <MovieTitle>{movie.title + `(${movie.year})`}</MovieTitle>
-            <Text>
-              <TextSpan>User score:</TextSpan> {movie.userScore}
-            </Text>
-            <Subtitle>Overview</Subtitle>
-            <Text>{movie.overview}</Text>
-            <Subtitle>Genres</Subtitle>
-            <Text>{movie.genres}</Text>
-            <Subtitle>Additional information</Subtitle>
-            <AddList>
-              <li>
-                <StyledTextLink to="cast"> Cast </StyledTextLink>
-              </li>
-              <li>
-                <StyledTextLink to="reviews"> Reviews </StyledTextLink>
-              </li>
-            </AddList>
-          </Wrap>
-        </DetailsWrapper>
-
+        {Object.keys(movie).length && (
+          <DetailsWrapper>
+            <img src={movie.imageUrl} alt={movie.title} width="500" />
+            <Wrap>
+              <MovieTitle>{movie.title + `(${movie.year})`}</MovieTitle>
+              <Text>
+                <TextSpan>User score:</TextSpan> {movie.userScore}
+              </Text>
+              <Subtitle>Overview</Subtitle>
+              <Text>{movie.overview}</Text>
+              <Subtitle>Genres</Subtitle>
+              <Text>{movie.genres}</Text>
+              <Subtitle>Additional information</Subtitle>
+              <AddList>
+                <li>
+                  <StyledTextLink to="cast"> Cast </StyledTextLink>
+                </li>
+                <li>
+                  <StyledTextLink to="reviews"> Reviews </StyledTextLink>
+                </li>
+              </AddList>
+            </Wrap>
+          </DetailsWrapper>
+        )}
         <Suspense fallback={<Loader top="10" />}>
           <Outlet />
         </Suspense>
